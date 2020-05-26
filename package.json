@@ -1,8 +1,12 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "generate random ids",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "tag": "latest"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
