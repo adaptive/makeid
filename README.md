@@ -1,0 +1,1 @@
+![Test](https://github.com/adaptive/makeid/workflows/Test/badge.svg)

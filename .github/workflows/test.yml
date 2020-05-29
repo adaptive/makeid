@@ -5,11 +5,14 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [8, 10, 12, 14]
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '12.x'
+        node-version: ${{ matrix.node }}
         registry-url: 'https://npm.pkg.github.com'
         scope: '@adaptive'
     - name: Get yarn cache dir-path
