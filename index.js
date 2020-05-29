@@ -2,7 +2,7 @@
  * @param {number} lenght - number of characters of generated ID
  */
 
-const makeid = (lenght) => {
+const makeid = (lenght = 6) => {
   let text = "";
   // omitted confusing characters
   const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789";
