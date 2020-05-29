@@ -1,6 +1,6 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "generate random ids",
   "main": "index.js",
   "publishConfig": {
