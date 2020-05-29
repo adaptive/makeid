@@ -1,8 +1,9 @@
 /** Generate Random ID
- * @param {number} lenght - number of characters of generated ID
+ * @param {number=} [lenght] - the positive number of characters of generated ID
  */
 
 const makeid = (lenght = 6) => {
+  lenght = Math.abs(lenght);
   let text = "";
   // omitted confusing characters
   const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789";
