@@ -1,6 +1,6 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "description": "generate random ids",
   "main": "index.js",
   "publishConfig": {
@@ -19,6 +19,7 @@
     "id",
     "random"
   ],
+  "files": [],
   "author": "Hugo Romano",
   "license": "MIT",
   "bugs": {
