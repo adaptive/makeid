@@ -29,5 +29,7 @@ jobs:
       run: yarn
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Pack and Unpack
+      run: npm pack && tar -xvzf *.tgz
     - name: Test
       run: yarn test

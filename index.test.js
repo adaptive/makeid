@@ -1,4 +1,4 @@
-const { makeid } = require("./index");
+const { makeid } = require("./package/index");
 
 test("generate an ID with default lenght", () => {
   expect(makeid()).toHaveLength(6);
