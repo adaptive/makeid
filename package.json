@@ -1,8 +1,9 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "description": "generate random ids",
   "main": "index.js",
+  "type": "index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
     "tag": "latest"
