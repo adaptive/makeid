@@ -1,9 +1,9 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "description": "generate random ids",
   "main": "index.js",
-  "type": "index.d.ts",
+  "types": "index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
     "tag": "latest"
@@ -21,7 +21,6 @@
     "id",
     "random"
   ],
-  "files": [],
   "author": "Hugo Romano",
   "license": "MIT",
   "bugs": {
