@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/adaptive/makeid#readme",
   "devDependencies": {
-    "jest": "26.4.2"
+    "jest": "26.5.0"
   }
 }
