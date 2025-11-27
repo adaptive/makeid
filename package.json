@@ -1,6 +1,6 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.11",
+  "version": "0.9.12",
   "description": "generate random ids",
   "main": "index.js",
   "types": "index.d.ts",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "pretest": "npm pack && tar -xvzf *.tgz",
-    "test": "jest"
+    "test": "bun test"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,5 @@
   "bugs": {
     "url": "https://github.com/adaptive/makeid/issues"
   },
-  "homepage": "https://github.com/adaptive/makeid#readme",
-  "devDependencies": {
-    "jest": "29.2.2"
-  }
+  "homepage": "https://github.com/adaptive/makeid#readme"
 }

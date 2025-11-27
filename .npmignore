@@ -1,3 +1,7 @@
 .github
 *.test.js
 *.log
+*.tgz
+bun.lock
+bun.lockb
+package
