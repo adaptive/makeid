@@ -1,6 +1,6 @@
 {
   "name": "@adaptive/makeid",
-  "version": "0.9.12",
+  "version": "1.0.0",
   "description": "generate random ids, ulids",
   "type": "module",
   "main": "index.js",

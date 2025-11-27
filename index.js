@@ -11,7 +11,7 @@ const nonConfusing = "ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789";
  * @param {number} [length=6] positive number of characters in the generated ID
  * @returns {string}
  */
-export const makeid = (length = 6) => {
+export const generateId = (length = 6) => {
   const normalizedLength = Math.abs(length);
   let text = "";
   for (let i = 0; i < normalizedLength; i++) {
@@ -26,7 +26,7 @@ export const makeid = (length = 6) => {
  * @returns {string} ULID string
  */
 
-export const ulid = (ts = Date.now()) => {
+export const generateUlid = (ts = Date.now()) => {
   const cryptoApi = globalThis.crypto ?? webcrypto;
   if (!cryptoApi?.getRandomValues) {
     throw new Error("crypto.getRandomValues is not available in this environment");
@@ -48,5 +48,24 @@ export const ulid = (ts = Date.now()) => {
   return id;
 }
 
+/**
+ * Decode the timestamp component of a ULID.
+ * @param {string} id ULID string
+ * @returns {Date|null} Date for the embedded timestamp, or null on invalid input
+ */
+export const decodeUlidTimestamp = (id) => {
+  if (!id || id.length < 10) return null;
 
-export default makeid;
+  let ts = 0;
+
+  for (let i = 0; i < 10; i += 1) {
+    const value = ALPHABET.indexOf(id[i]);
+    if (value < 0) return null;
+    ts = ts * 32 + value;
+  }
+
+  if (!Number.isFinite(ts)) return null;
+  return new Date(ts);
+}
+
+export default generateId;

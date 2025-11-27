@@ -1,9 +1,9 @@
-import makeid, { makeid as createId, ulid } from "./package/index.js";
+import makeid, { decodeUlidTimestamp,generateUlid, generateId} from "./package/index.js";
 
 test("import test", () => {
   expect(makeid()).toHaveLength(6);
-  expect(createId()).toHaveLength(6);
-  expect(ulid()).toHaveLength(26);
+  expect(generateId()).toHaveLength(6);
+  expect(generateUlid()).toHaveLength(26);
 });
 
 test("generate an ID with default length", () => {
@@ -51,21 +51,21 @@ test("generate an ID with length of 100000", () => {
 });
 
 test("generate a ULID with default timestamp", () => {
-  const id = ulid();
+  const id = generateUlid();
   expect(id).toHaveLength(26);
   expect(id).toMatch(/^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{26}$/);
 });
 
 test("generate a ULID with specific timestamp", () => {
   const ts = 1893455999000; // Specific timestamp
-  const id = ulid(ts);
+  const id = generateUlid(ts);
   expect(id).toHaveLength(26);
   expect(id).toMatch(/^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{26}$/);
 });
 
 test("ULIDs are sortable by timestamp", () => {
-  const older = ulid(1893455998999);
-  const newer = ulid(1893455999000);
+  const older = generateUlid(1893455998999);
+  const newer = generateUlid(1893455999000);
   expect(older < newer).toBe(true);
 });
 
@@ -73,7 +73,19 @@ test("generate multiple ULIDs and ensure uniqueness", () => {
   const ulidSet = new Set();
   const count = 1000;
   for (let i = 0; i < count; i++) {
-    ulidSet.add(ulid());
+    ulidSet.add(generateUlid());
   }
   expect(ulidSet.size).toBe(count);
+});
+
+test("decode ULID timestamp returns matching Date", () => {
+  const ts = 1893455999000;
+  const id = generateUlid(ts);
+  const decoded = decodeUlidTimestamp(id);
+  expect(decoded?.getTime()).toBe(ts);
+});
+
+test("decode ULID timestamp returns null on invalid input", () => {
+  expect(decodeUlidTimestamp("")).toBeNull();
+  expect(decodeUlidTimestamp("INVALID-ULID-STRING")).toBeNull();
 });
