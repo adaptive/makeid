@@ -1,4 +1,10 @@
-import { makeid, ulid } from "./package/index.js";
+import makeid, { makeid as createId, ulid } from "./package/index.js";
+
+test("import test", () => {
+  expect(makeid()).toHaveLength(6);
+  expect(createId()).toHaveLength(6);
+  expect(ulid()).toHaveLength(26);
+});
 
 test("generate an ID with default length", () => {
   expect(makeid()).toHaveLength(6);
