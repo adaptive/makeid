@@ -2,8 +2,15 @@
   "name": "@adaptive/makeid",
   "version": "0.9.12",
   "description": "generate random ids",
+  "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
     "tag": "latest"
@@ -17,9 +24,10 @@
     "url": "git+https://github.com/adaptive/makeid.git"
   },
   "keywords": [
-    "javascript",
     "id",
-    "random"
+    "javascript",
+    "random",
+    "ulid"
   ],
   "author": "Hugo Romano",
   "license": "MIT",
